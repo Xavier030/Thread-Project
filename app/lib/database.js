@@ -1,15 +1,10 @@
-// establish connection to the mysql db
-
-//import library for connection from installed package
-//database.js
 import { createPool } from "mysql2/promise";
 
-//create connection
 const pool = createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "Lsy021126",
-  database: process.env.DB_NAME || "travelexperts",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD, 
+  database: process.env.DB_NAME,
   port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
@@ -17,4 +12,5 @@ const pool = createPool({
   connectTimeout: 60000,
   dateStrings: true,
 });
+
 export default pool;
